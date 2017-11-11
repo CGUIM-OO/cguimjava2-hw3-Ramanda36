@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * @author TODO: please add student ID and name here
+ * B0544224¼Ô÷~
  * Try to write some comments for your codes (methods, 10 points)
  */
 public class HW3 {
@@ -13,6 +14,9 @@ public class HW3 {
 		//String testn= sc.nextLine(); 
 		int nDeck=1;
 		//TODO: please add new fields and methods to Deck class (35)
+		
+		
+		
 		//usedCard (5 points)
 		//nUsed (5 points)
 		//getOneCard (10 points)
@@ -49,7 +53,7 @@ public class HW3 {
 	private static boolean isShuffleWorking(Deck deck,Card newCard,Card newCard2){
 		deck.shuffle();
 		boolean isCorrect=true;
-		if(newCard.getSuit().equals(newCard2.getSuit()) &&
+		if(newCard.getSuits().equals(newCard2.getSuits()) &&
 				newCard.getRank()==newCard2.getRank()){
 					isCorrect=false;
 					return isCorrect;
@@ -68,7 +72,7 @@ public class HW3 {
 		boolean isCorrect=true;;
 		HashMap <String,Integer> checkHash=new HashMap<String,Integer>();
 		for(Card card:allCards){
-			Card.Suit suit= card.getSuit();
+			Card.Suit suit= card.getSuits();
 			int rank = card.getRank();
 			if(rank>13||rank<1){
 				isCorrect=false;
