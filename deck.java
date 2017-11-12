@@ -33,11 +33,11 @@ public class Deck {
 //					}
 //				}
 				
-				for(Card.Suit s: Card.Suit.values())
+				for(Card.Suit s: Card.Suit.values())//for(int s=0;s<4;s++)花色
 				{
 					for(int y = 1 ; y <= 13 ; y ++)
 						{
-							Card card=new Card(s,y); 
+							Card card=new Card(s,y); //存入每一張牌
 							cards.add(card);
 						}
 				}
@@ -52,13 +52,13 @@ public class Deck {
 		public void shuffle()
 		{
 			
-		Random rmd = new Random();
+		Random rmd = new Random();//隨機選一張牌
 			for(int a = 0 ; a < 52;a ++)
 			{
 				int j = rmd.nextInt(52-a);
 				
-				Card temp = cards.get(j);
-				cards.set(j, cards.get(a));
+				Card temp = cards.get(j);//temp當作暫存空間
+				cards.set(j, cards.get(a));//牌兩兩交換
 				cards.set(a, temp);
 				
 			}
@@ -72,16 +72,16 @@ public class Deck {
 		public Card getOneCard()
 		{
 			
-			if(nUsed==51)
+			if(nUsed==51)//當發出去52張牌時就洗牌
 			{ 
 				shuffle();
-				return cards.get(nUsed);
+				return cards.get(nUsed);//nused重回0
 			}
 			else
 			{
-				usedCard.add(cards.get(nUsed));
-				nUsed ++;
-				return cards.get(nUsed-1);
+				usedCard.add(cards.get(nUsed));//記錄發出去的牌到usedcard
+				nUsed ++;//多發一張卡
+				return cards.get(nUsed-1);//把nUsed+1的誤差減回來
 			}
 			
 			
